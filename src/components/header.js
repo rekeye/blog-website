@@ -6,30 +6,31 @@ import Logo from "./logo"
 const coloredHeaderClass = {
   height: `8rem`,
   background: `linear-gradient(to right, #4654B9, #468EB9)`,
-  marginBottom: `1.45rem`,
-  padding: `2rem 5rem`,
+  padding: `0 5rem`,
   display: `flex`,
   justifyContent: `space-between`,
-};
+}
+
+const titleClass = { 
+  margin: 0,
+  paddingBottom: `1.2rem`,
+  fontWeight: `500`,
+  fontSize: `2.6em`,
+  alignSelf: `flex-end`
+}
+
+const linkClass = {
+  color: `black`, 
+  textDecoration: `none`
+}
 
 const Header = ({ siteTitle }) => (
   <header>
-  <section style={coloredHeaderClass}>
+    <section style={coloredHeaderClass}>
       <Logo />
-      <h1 style={{ 
-        margin: 0,
-        fontFamily: `'Niramit', sans-serif`,
-        fontWeight: `500`,
-        alignSelf: `flex-end`
-      }}>
-        <Link
-          to="/"
-          style={{
-            color: `black`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+      <h1 style={titleClass}>
+        <Link to="/" style={linkClass}>
+          { siteTitle }
         </Link>
       </h1>
     </section>

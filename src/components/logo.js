@@ -34,7 +34,7 @@ const Logo = () => {
     `)
 
   return (
-    <div style={{ display: `flex`, alignItems: `center`, justifyContent: `center`, margin: `5.5rem 3rem`}}>
+    <div style={{ display: `flex`, alignItems: `center`, justifyContent: `center`, margin: `7.5rem 3rem`}}>
       <Img fixed={ data.textLogo.childImageSharp.fixed } style={{ position: `absolute` }}/>
       <div>
         <Img fixed={ data.handLogo.childImageSharp.fixed } />
