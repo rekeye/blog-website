@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 /*
@@ -14,35 +14,32 @@ import Img from "gatsby-image"
  */
 
 const Logo = () => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          handLogo: file(relativePath: { eq: "handLogo.png" }) {
-            childImageSharp {
-              fixed(width: 75) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          textLogo: file(relativePath: { eq: "textLogo.png" }) {
-            childImageSharp {
-              fixed(width: 225) {
-                ...GatsbyImageSharpFixed
-              }
+  const data = useStaticQuery(graphql`
+      query {
+        handLogo: file(relativePath: { eq: "handLogo.png" }) {
+          childImageSharp {
+            fixed(width: 75) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
-      `}
-      render={data => 
-        <div>
-          <Img fixed={ data.textLogo.childImageSharp.fixed } />
-          <div style={{ position: `relative`, top: `50%`, left: `50%` }} >
-            <Img fixed={ data.handLogo.childImageSharp.fixed } />
-          </div>
-        </div>
+        textLogo: file(relativePath: { eq: "textLogo.png" }) {
+          childImageSharp {
+            fixed(width: 225) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
       }
-    />
+    `)
+
+  return (
+    <div style={{ display: `flex`, alignItems: `center`, justifyContent: `center`, margin: `5.5rem 3rem`}}>
+      <Img fixed={ data.textLogo.childImageSharp.fixed } style={{ position: `absolute` }}/>
+      <div>
+        <Img fixed={ data.handLogo.childImageSharp.fixed } />
+      </div>
+    </div>
   )
 }
 
