@@ -1,7 +1,9 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+
 import Logo from "./logo"
+import Nav from "./nav"
 
 const coloredHeaderClass = {
   height: `8rem`,
@@ -35,7 +37,7 @@ const Header = ({ siteTitle }) => (
       </h1>
     </section>
     <section>
-
+      <Nav></Nav>
     </section>
   </header>
 )
