@@ -17,9 +17,9 @@ const linkClass = {
 }
 const underlineClass = {
     height: `2px`,
+    background: `#000`,
+    border: 0,
     transition: 'all .2s ease-in-out',
-    borderColor: `#000`,
-    marginBottom: `0`
 }
 
 //hover animation for links using hook

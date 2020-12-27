@@ -6,9 +6,9 @@ import Logo from "./logo"
 import Nav from "./nav"
 
 const coloredHeaderClass = {
-  height: `8rem`,
+  height: `10rem`,
   background: `linear-gradient(to right, #4654B9, #468EB9)`,
-  padding: `0 5rem`,
+  padding: `2rem 5rem 0 5rem`,
   display: `flex`,
   justifyContent: `space-between`,
 }
@@ -37,7 +37,7 @@ const Header = ({ siteTitle }) => (
       </h1>
     </section>
     <section>
-      <Nav></Nav>
+      <Nav />
     </section>
   </header>
 )
