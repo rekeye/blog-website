@@ -20,11 +20,11 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div style={{ margin: `2rem 3rem` }}>
+      <div style={{ margin: `4rem 0` }}>
 
         <main> {children} </main>
 
-        <footer>
+        <footer style={{ padding: `0 4rem` }}>
           © { new Date().getFullYear() }, Built by Szymon Paluch, Mockup of Use All Five
         </footer>
       </div>
