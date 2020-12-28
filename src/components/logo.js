@@ -22,18 +22,21 @@ const Logo = () => {
       }
     `)
 
-    
-  let scrollAnimation = { transform: `rotate(0)`, transition: 'all .8s ease-in-out' }
+  let scrollAnimation = { position: `absolute`, transform: `rotate(0)`, transition: 'all .8s ease-in-out' }
   const onScroll = () => {
     const scrollLocation = window.scrollY;
 
     scrollAnimation.transform = 
-      `rotate(${scrollLocation*3.6}deg)`;
-      console.log(scrollAnimation);
+      `rotate(${scrollLocation*1.8}deg)`;
+    if(scrollLocation>180 && scrollAnimation.display !== `none`) {
+      scrollAnimation.display = `none`
+    } else if(scrollLocation<=180 && scrollAnimation.display !== `block`) {
+      scrollAnimation.display = `block`
+    }
+    console.log(scrollAnimation);
   }
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
-
     //cleanup
     return () => {
       window.removeEventListener('scroll', onScroll);
@@ -42,7 +45,7 @@ const Logo = () => {
 
   return (
     <div style={{ display: `flex`, alignItems: `center`, justifyContent: `center`, margin: `7.5rem 3rem`}}>
-      <Img fixed={ data.textLogo.childImageSharp.fixed } style={{ position: `absolute`, ...scrollAnimation }}/>
+      <Img fixed={ data.textLogo.childImageSharp.fixed } style={scrollAnimation}/>
       <div>
         <Img fixed={ data.handLogo.childImageSharp.fixed } />
       </div>
