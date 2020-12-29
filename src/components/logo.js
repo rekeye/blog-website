@@ -5,17 +5,17 @@ import Img from "gatsby-image"
 const Logo = () => {
   const data = useStaticQuery(graphql`
       query {
-        handLogo: file(relativePath: { eq: "handLogo.png" }) {
+        handLogo: file(relativePath: { eq: "logo/handLogo.png" }) {
           childImageSharp {
             fixed(width: 75) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_noBase64
             }
           }
         }
-        textLogo: file(relativePath: { eq: "textLogo.png" }) {
+        textLogo: file(relativePath: { eq: "logo/textLogo.png" }) {
           childImageSharp {
             fixed(width: 225) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_noBase64
             }
           }
         }

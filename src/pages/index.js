@@ -1,33 +1,58 @@
 import React from "react"
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { useStaticQuery, graphql } from "gatsby"
 
+import Article from "../components/article"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const StyledSection = styled.section`
-  height: 60%;
-  width: 100%;
-`
 const SiteMotto = styled.h2`
   width: 60%;
-  padding: 0 4rem;
+  padding: 4rem;
   font-size: 2.6em;
 `
 
-const IndexPage = () => (
+const IndexPage = () => {
+  //query images for articles
+  const images = useStaticQuery(graphql`
+    query {
+        firstArticle: file(relativePath: { eq: "1.jpg" }) {
+            childImageSharp {
+                fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        secondArticle: file(relativePath: { eq: "2.jpg" }) {
+          childImageSharp {
+              fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+              }
+          }
+        }
+        thirdArticle: file(relativePath: { eq: "3.jpg" }) {
+          childImageSharp {
+              fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+              }
+          }
+        }
+    }
+  `)
+
+  return (
     <Layout>
       <SEO title="Home" />
       <SiteMotto>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Nullam facilisis elit pretium, gravida ipsum at, fermentum libero. 
       </SiteMotto>
-
-      <StyledSection>
-
-      </StyledSection>
-
-      <div style={{ height: `70vh` }}></div>
+      
+      <Article img={images.firstArticle}></Article>
+      <Article img={images.secondArticle}></Article>
+      <Article img={images.thirdArticle}></Article>
     </Layout>
-)
+  )
+}
 
 export default IndexPage

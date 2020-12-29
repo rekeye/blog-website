@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
 
         <main> {children} </main>
 
-        <footer style={{ padding: `0 4rem` }}>
+        <footer style={{ padding: `2rem 4rem` }}>
           © { new Date().getFullYear() }, Built by Szymon Paluch, Mockup of Use All Five
         </footer>
       </div>
