@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 
-import Article from "../components/article"
+import StyledArticle from "../components/article"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -48,9 +48,9 @@ const IndexPage = () => {
         Nullam facilisis elit pretium, gravida ipsum at, fermentum libero. 
       </SiteMotto>
       
-      <Article img={images.firstArticle}></Article>
-      <Article img={images.secondArticle}></Article>
-      <Article img={images.thirdArticle}></Article>
+      <StyledArticle img={images.firstArticle}></StyledArticle>
+      <StyledArticle img={images.secondArticle}></StyledArticle>
+      <StyledArticle img={images.thirdArticle}></StyledArticle>
     </Layout>
   )
 }
