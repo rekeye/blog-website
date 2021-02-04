@@ -28,16 +28,38 @@ const FlexDiv = styled.a`
 const Article = (props) => (
     <BackgroundImage
         Tag="section"
-        fluid={props.img.childImageSharp.fluid}
-    >
+        fluid={props.img.childImageSharp.fluid} >
         <ArticleElement>
-            <ArticleTitle> Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. </ArticleTitle>
-            <ArticleContentContainer>
-                <p> Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat. </p>
-                <hr/>
+            <ArticleTitle
+                data-sal="fade"
+                data-sal-delay="500"
+                data-sal-duration="600"
+                data-sal-easing="easeInSine" > 
+                    Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
+            </ArticleTitle>
+            <ArticleContentContainer
+                data-sal="fade"
+                data-sal-delay="700"
+                data-sal-easing="easeInSine" >
+                <p> 
+                    Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat.
+                </p>
+                <hr />
                 <FlexDiv>
-                    <span> View the article </span>
-                    <img src={ arrow } alt="right arrow"/>
+                    <span  
+                        data-sal="slide-down"
+                        data-sal-delay="600"
+                        data-sal-duration="600"
+                        data-sal-easing="easeInSine" > 
+                            View the article 
+                    </span>
+                    <img 
+                        src={ arrow } 
+                        alt="right arrow" 
+                        data-sal="slide-right"
+                        data-sal-delay="600"
+                        data-sal-duration="600"
+                        data-sal-easing="easeInSine" />
                 </FlexDiv>
             </ArticleContentContainer>
         </ArticleElement>

@@ -19,21 +19,21 @@ const IndexPage = () => {
         firstArticle: file(relativePath: { eq: "1.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_noBase64
                 }
             }
         }
         secondArticle: file(relativePath: { eq: "2.jpg" }) {
           childImageSharp {
               fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_noBase64
               }
           }
         }
         thirdArticle: file(relativePath: { eq: "3.jpg" }) {
           childImageSharp {
               fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_noBase64
               }
           }
         }
@@ -43,9 +43,13 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <SiteMotto>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Nullam facilisis elit pretium, gravida ipsum at, fermentum libero. 
+      <SiteMotto 
+        data-sal="slide-up"
+        data-sal-delay="400"
+        data-sal-duration="600"
+        data-sal-easing="easeInSine" >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Nullam facilisis elit pretium, gravida ipsum at, fermentum libero. 
       </SiteMotto>
       
       <StyledArticle img={images.firstArticle}></StyledArticle>

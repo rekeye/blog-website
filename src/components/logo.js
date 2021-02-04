@@ -1,6 +1,15 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import styled from 'styled-components'
+
+const Container = styled.div`
+  width: 225px;
+  height: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const Logo = () => {
   const data = useStaticQuery(graphql`
@@ -23,15 +32,13 @@ const Logo = () => {
     `)
 
   return (
-    <div style={{ display: `flex`, alignItems: `center`, justifyContent: `center`, margin: `7.5rem 3rem`}}>
+    <Container>
       <Img 
         fixed={ data.textLogo.childImageSharp.fixed } 
         style={{ position: "absolute", }}
       />
-      <div>
-        <Img fixed={ data.handLogo.childImageSharp.fixed } />
-      </div>
-    </div>
+      <Img fixed={ data.handLogo.childImageSharp.fixed } />
+    </Container>
   );
 }
 
