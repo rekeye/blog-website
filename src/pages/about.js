@@ -3,13 +3,18 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { SiteMotto } from "../styles/styled"
 
 const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <SiteMotto>About Us</SiteMotto>
+
+    <div style={{padding: "0 5rem"}}>
+      <p>Sadly there's nothing here yet</p>
+
+      <Link to="/">Go back to the homepage</Link>
+    </div>
   </Layout>
 )
 

@@ -21,3 +21,8 @@ export const FlexDiv = styled.a`
         justify-content: space-around;
   `}
 `
+
+export const SiteMotto = styled.h2`
+  padding: 4rem;
+  font-size: 2.6em;
+`

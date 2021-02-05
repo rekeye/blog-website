@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div style={{ margin: `4rem 0` }}>
+      <div style={{ marginTop: `4rem` }}>
 
         <main> {children} </main>
 

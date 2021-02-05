@@ -1,18 +1,12 @@
 import React from "react"
-import { graphql } from "gatsby"
-import styled from 'styled-components'
 
 import ArticleSection from "../components/articleSection/articleSection"
 import MiniArticleSection from "../components/miniArticleSection/miniArticleSection"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import { SectionTitle, FlexDiv } from '../styles/styled'
+import { SectionTitle, SiteMotto } from '../styles/styled'
 
-const SiteMotto = styled.h2`
-  padding: 4rem;
-  font-size: 2.6em;
-`
 const TextAnimation = (props) => (
   <div 
     style={{ paddingRight: "0.25em" }}
