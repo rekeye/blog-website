@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 
-import StyledArticle from "./miniArticle"
+import MiniArticle from "./miniArticle"
 import { FlexDiv } from "../../styles/styled"
 
 const MiniArticleSection = () => {
@@ -34,7 +34,7 @@ const MiniArticleSection = () => {
     const miniArticles = []
     for(const value in data) {
         console.log(data[value])
-        miniArticles.push(<StyledArticle img={data[value]}></StyledArticle>)
+        miniArticles.push(<MiniArticle key={value} img={data[value]}></MiniArticle>)
     }
 
     return (

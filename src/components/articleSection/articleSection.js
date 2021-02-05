@@ -9,21 +9,21 @@ const ArticleSection = () => {
         first: file(relativePath: {eq: "1.jpg"}) {
             childImageSharp {
             fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_noBase64
+                ...GatsbyImageSharpFluid
             }
             }
         }
         second: file(relativePath: {eq: "2.jpg"}) {
             childImageSharp {
             fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_noBase64
+                ...GatsbyImageSharpFluid
             }
             }
         }
         third: file(relativePath: {eq: "3.jpg"}) {
             childImageSharp {
             fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_noBase64
+                ...GatsbyImageSharpFluid
             }
             }
         }
@@ -33,7 +33,7 @@ const ArticleSection = () => {
     const articles = []
     for(const value in data) {
       console.log(data[value])
-      articles.push(<StyledArticle img={data[value]}></StyledArticle>)
+      articles.push(<StyledArticle key={value} img={data[value]}></StyledArticle>)
     }
 
     return (
