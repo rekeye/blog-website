@@ -31,6 +31,7 @@ const Logo = () => {
       }
     `)
 
+    console.log(data)
   return (
     <Container>
       <Img 

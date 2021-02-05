@@ -1,12 +1,13 @@
 import React from "react"
+import { graphql } from "gatsby"
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from "gatsby"
 
-import StyledArticle from "../components/article"
+import ArticleSection from "../components/articleSection/articleSection"
+import MiniArticleSection from "../components/miniArticleSection/miniArticleSection"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import { SectionTitle } from '../styles/styled'
+import { SectionTitle, FlexDiv } from '../styles/styled'
 
 const SiteMotto = styled.h2`
   padding: 4rem;
@@ -23,60 +24,30 @@ const TextAnimation = (props) => (
   </div>
 )
 
-const IndexPage = () => {
-  //query images for articles
-  const images = useStaticQuery(graphql`
-    query {
-        firstArticle: file(relativePath: { eq: "1.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_noBase64
-                }
-            }
-        }
-        secondArticle: file(relativePath: { eq: "2.jpg" }) {
-          childImageSharp {
-              fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_noBase64
-              }
-          }
-        }
-        thirdArticle: file(relativePath: { eq: "3.jpg" }) {
-          childImageSharp {
-              fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_noBase64
-              }
-          }
-        }
-    }
-  `)
+const IndexPage = () => (
+  <Layout>
+    <SEO title="Home" />
+    <SiteMotto >
+        <TextAnimation delay="400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        </TextAnimation>
+        <TextAnimation>
+            Nullam facilisis elit pretium, gravida ipsum at,
+        </TextAnimation>
+        <TextAnimation delay="600">
+            fermentum libero. 
+        </TextAnimation>
+    </SiteMotto>
 
-  return (
-    <Layout>
-      <SEO title="Home" />
-      <SiteMotto >
-          <TextAnimation delay="400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          </TextAnimation>
-          <TextAnimation>
-              Nullam facilisis elit pretium, gravida ipsum at,
-          </TextAnimation>
-          <TextAnimation delay="600">
-              fermentum libero. 
-          </TextAnimation>
-      </SiteMotto>
-      
-      <StyledArticle img={images.firstArticle}></StyledArticle>
-      <StyledArticle img={images.secondArticle}></StyledArticle>
-      <StyledArticle img={images.thirdArticle}></StyledArticle>
+    <ArticleSection></ArticleSection>
 
-      <SectionTitle centered >
-          <TextAnimation> Our </TextAnimation> 
-          <TextAnimation type="slide-down"> Thoughts </TextAnimation>
-      </SectionTitle>
+    <SectionTitle centered >
+        <TextAnimation> Our </TextAnimation> 
+        <TextAnimation type="slide-down"> Thoughts </TextAnimation>
+    </SectionTitle>
 
-    </Layout>
-  )
-}
+    <MiniArticleSection></MiniArticleSection>
+  </Layout>
+)
 
 export default IndexPage

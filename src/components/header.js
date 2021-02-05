@@ -8,7 +8,7 @@ import Nav from "./nav"
 
 const ColoredSection = styled.section`
   height: 10rem;
-  background: linear-gradient(to right, #4654B9, #468EB9);
+  background: linear-gradient(to right, #D4732B, #D59E2A);
   padding: 2rem 5rem 0 5rem;
   display: flex;
   justify-content: space-between;

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import BackgroundImage from 'gatsby-background-image'
 
-import arrow from '../images/right-arrow.svg'
-import { SectionTitle } from '../styles/styled'
+import arrow from '../../images/right-arrow.svg'
+import { SectionTitle, FlexDiv } from '../../styles/styled'
 
 const ArticleElement = styled.article`
     padding: 5rem;
@@ -14,13 +14,6 @@ const ArticleElement = styled.article`
 const ArticleContentContainer = styled.div`
     padding: 2rem 0;
     width: 60%;
-`
-const FlexDiv = styled.a`
-    padding: 0.5rem 1rem 0.5rem 0;
-    font-size: 1.2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 `
 
 const Article = (props) => (
