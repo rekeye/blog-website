@@ -6,8 +6,7 @@ export const SectionTitle = styled.h2`
 
     ${props => props.centered && css`
         font-size: 2.8em;
-        display: flex;
-        justify-content: center;
+        text-align: center;
   `}
 `
 export const FlexDiv = styled.a`

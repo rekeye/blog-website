@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
+import { TextAnimation } from '../animations'
+
 const MiniArticleDate = styled.div`
     width: 100%;
     margin-top: 6rem;
@@ -20,8 +22,14 @@ const MiniArticle = (props) => (
     <MiniArticleContainer>
         <Img fluid={props.img.childImageSharp.fluid}></Img>
 
-        <MiniArticleDate> General - Feb 4, 2021 </MiniArticleDate>
-        <MiniArticleTitle> Deserunt est dolor magna aliquip. </MiniArticleTitle>
+        <TextAnimation type="slide-down">
+            <MiniArticleDate> 
+                General - Feb 4, 2021 
+            </MiniArticleDate>
+            <MiniArticleTitle> 
+                Deserunt est dolor magna aliquip. 
+            </MiniArticleTitle>
+        </TextAnimation>
     </MiniArticleContainer>
 )
 

@@ -10,21 +10,21 @@ const MiniArticleSection = () => {
           first: file(relativePath: {eq: "mini1.jpg"}) {
             childImageSharp {
               fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid_noBase64
+                ...GatsbyImageSharpFluid
               }
             }
           }
           second: file(relativePath: {eq: "mini2.jpg"}) {
             childImageSharp {
               fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid_noBase64
+                ...GatsbyImageSharpFluid
               }
             }
           }
           third: file(relativePath: {eq: "mini3.jpg"}) {
             childImageSharp {
               fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid_noBase64
+                ...GatsbyImageSharpFluid
               }
             }
           }

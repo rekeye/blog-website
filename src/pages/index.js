@@ -26,8 +26,8 @@ const IndexPage = () => (
     <ArticleSection></ArticleSection>
 
     <SectionTitle centered >
-        <TextAnimation> Our </TextAnimation> 
-        <TextAnimation type="slide-down"> Thoughts </TextAnimation>
+        <TextAnimation el="span"> Our </TextAnimation>
+        <TextAnimation el="span" type="slide-down"> Thoughts </TextAnimation>
     </SectionTitle>
 
     <MiniArticleSection></MiniArticleSection>
