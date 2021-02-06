@@ -5,6 +5,7 @@ import BackgroundImage from 'gatsby-background-image'
 
 import arrow from '../../images/right-arrow.svg'
 import { SectionTitle, FlexDiv } from '../../styles/styled'
+import { TextAnimation } from '../animations'
 
 const ArticleElement = styled.article`
     padding: 5rem;
@@ -21,37 +22,29 @@ const Article = (props) => (
         Tag="section"
         fluid={props.img.childImageSharp.fluid} >
         <ArticleElement>
-            <SectionTitle
-                data-sal="fade"
-                data-sal-delay="500"
-                data-sal-duration="600"
-                data-sal-easing="easeInSine" > 
-                    Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
-            </SectionTitle>
-            <ArticleContentContainer
-                data-sal="fade"
-                data-sal-delay="700"
-                data-sal-easing="easeInSine" >
-                <p> 
-                    Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat.
-                </p>
-                <hr />
-                <FlexDiv>
-                    <span  
-                        data-sal="slide-down"
-                        data-sal-delay="600"
-                        data-sal-duration="600"
-                        data-sal-easing="easeInSine" > 
-                            View the article 
-                    </span>
-                    <img 
-                        src={ arrow } 
-                        alt="right arrow" 
-                        data-sal="slide-right"
-                        data-sal-delay="600"
-                        data-sal-duration="600"
-                        data-sal-easing="easeInSine" />
-                </FlexDiv>
+            <TextAnimation type="fade">
+                <SectionTitle> 
+                        Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
+                </SectionTitle>
+            </TextAnimation>
+            
+            <ArticleContentContainer >
+                <TextAnimation type="fade" delay="700">
+                    <p> 
+                        Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat.
+                    </p>
+                </TextAnimation>
+                <TextAnimation type="slide-right">
+
+                    <hr/>
+                    <FlexDiv>
+                        <span> 
+                                View the article 
+                        </span>
+                        <img src={ arrow } alt="right arrow"/>
+                    </FlexDiv>
+
+                </TextAnimation>
             </ArticleContentContainer>
         </ArticleElement>
     </BackgroundImage>

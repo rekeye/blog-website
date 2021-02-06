@@ -12,13 +12,17 @@ const MiniArticleTitle = styled.h2`
     text-align: center;
     margin-top: 0;
 `
+const MiniArticleContainer = styled.div`
+    width: 25%;
+`
 
 const MiniArticle = (props) => (
-    <div>
+    <MiniArticleContainer>
         <Img fluid={props.img.childImageSharp.fluid}></Img>
+
         <MiniArticleDate> General - Feb 4, 2021 </MiniArticleDate>
-        <MiniArticleTitle>Deserunt est dolor magna aliquip.</MiniArticleTitle>
-    </div>
+        <MiniArticleTitle> Deserunt est dolor magna aliquip. </MiniArticleTitle>
+    </MiniArticleContainer>
 )
 
 MiniArticle.propTypes = {
