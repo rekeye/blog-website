@@ -25,7 +25,7 @@ const IndexPage = () => (
 
     <ArticleSection></ArticleSection>
 
-    <SectionTitle centered >
+    <SectionTitle centered id="thoughts">
         <TextAnimation el="span"> Our </TextAnimation>
         <TextAnimation el="span" type="slide-down"> Thoughts </TextAnimation>
     </SectionTitle>

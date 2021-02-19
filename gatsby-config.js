@@ -5,6 +5,12 @@ module.exports = {
     author: `@SzymonPaluch`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100
+      }
+    },
     `gatsby-plugin-scroll-reveal`,
     `gatsby-plugin-react-helmet`,
     {

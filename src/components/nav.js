@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const navClass = {
     height: `6rem`, 
@@ -31,9 +32,7 @@ const useUnderline = () => {
         setUnderline(num);
     }
   
-    const onMouseLeave = () => {
-        setUnderline(0);
-    }
+    const onMouseLeave = () => setUnderline(0);
   
     const underlineAnimations = []
     for(let i=1;i<4;i++) {
@@ -50,19 +49,23 @@ const useUnderline = () => {
   }
 
 const Nav = () => {
-    const { underlineAnimations, ...underlineProps} = useUnderline()
+    const { underlineAnimations, ...underlineHandler } = useUnderline()
 
     return (
         <nav style={navClass}>
-            <Link id="nav-1" to="/thoughts" style={ linkClass } {...underlineProps}>
-                Thoughts 
-                <hr style={{ ...underlineClass, ...underlineAnimations[0] }}/> 
-            </Link>
-            <Link id="nav-2" to="/about" style={ linkClass } {...underlineProps}> 
+            <AnchorLink 
+                to="/#thoughts" 
+                className="link">
+                    <div id="nav-1" {...underlineHandler} >
+                        Thoughts 
+                        <hr style={{ ...underlineClass, ...underlineAnimations[0] }}/> 
+                    </div>
+            </AnchorLink>
+            <Link id="nav-2" to="/about" className="link" {...underlineHandler}> 
                 About 
                 <hr style={{ ...underlineClass, ...underlineAnimations[1] }}/> 
             </Link>
-            <Link id="nav-3" to="/contact" style={ linkClass } {...underlineProps}> 
+            <Link id="nav-3" to="/contact" className="link" {...underlineHandler}> 
                 Contact us 
                 <hr style={{ ...underlineClass, ...underlineAnimations[2] }}/> 
             </Link>

@@ -34,10 +34,13 @@ const Logo = () => {
     console.log(data)
   return (
     <Container>
-      <Img 
-        fixed={ data.textLogo.childImageSharp.fixed } 
-        style={{ position: "absolute", }}
-      />
+      <div
+        style={{ position: "absolute", }} 
+        data-sal="flip-right"
+        data-sal-duration="600"
+        data-sal-easing="easeInSine">
+          <Img fixed={ data.textLogo.childImageSharp.fixed } />
+      </div>
       <Img fixed={ data.handLogo.childImageSharp.fixed } />
     </Container>
   );

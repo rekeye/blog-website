@@ -9,7 +9,7 @@ export const SectionTitle = styled.h2`
         text-align: center;
   `}
 `
-export const FlexDiv = styled.a`
+export const FlexDiv = styled.div`
     padding: 0.5rem 1rem;
     font-size: 1.2em;
     display: flex;
@@ -18,6 +18,7 @@ export const FlexDiv = styled.a`
 
     ${props => props.spaceAround && css`
         justify-content: space-around;
+        align-items: flex-start;
   `}
 `
 
