@@ -36,7 +36,7 @@ const Article = ({ src, width, className }) => {
     const { loading, error, data } = useQuery(DOWNLOAD_IMAGE, {
         variables: { src, width },
     })
-    console.log({ src: src, width: width });
+    console.log({ src, width });
 
     if (loading) return null;
     if (error) {
