@@ -11,7 +11,7 @@ import { TextAnimation } from '../components/animations'
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <SiteMotto >
+    <SiteMotto>
         <TextAnimation delay="400">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         </TextAnimation>
@@ -23,14 +23,14 @@ const IndexPage = () => (
         </TextAnimation>
     </SiteMotto>
 
-    <ArticleSection></ArticleSection>
+    <ArticleSection />
 
     <SectionTitle centered id="thoughts">
         <TextAnimation el="span"> Our </TextAnimation>
         <TextAnimation el="span" type="slide-down"> Thoughts </TextAnimation>
     </SectionTitle>
 
-    <MiniArticleSection></MiniArticleSection>
+    <MiniArticleSection />
   </Layout>
 )
 

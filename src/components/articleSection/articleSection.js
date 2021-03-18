@@ -30,8 +30,8 @@ const ArticleSection = () => {
     }
     `)
     const articles = []
-    for(const value in data) {
-      articles.push(<StyledArticle key={value} img={data[value]}></StyledArticle>)
+    for( const value in data ) {
+      articles.push( <StyledArticle key={value} img={data[value]}></StyledArticle> )
     }
 
     return (

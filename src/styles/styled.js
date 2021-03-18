@@ -23,6 +23,6 @@ export const FlexDiv = styled.div`
 `
 
 export const SiteMotto = styled.h2`
-  padding: 4rem;
+  padding: 9rem 5rem;
   font-size: 2.6em;
 `

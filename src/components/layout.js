@@ -20,8 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div style={{ marginTop: `4rem` }}>
-
+      <div>
         <main> {children} </main>
 
         <footer style={{ padding: `2rem 4rem` }}>

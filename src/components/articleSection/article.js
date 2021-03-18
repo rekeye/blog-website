@@ -3,13 +3,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import BackgroundImage from 'gatsby-background-image'
 
-import arrow from '../../images/right-arrow.svg'
-import { SectionTitle, FlexDiv } from '../../styles/styled'
+import { SectionTitle } from '../../styles/styled'
 import { TextAnimation } from '../animations'
 
 const ArticleElement = styled.article`
     padding: 5rem;
-    width: 40%;
+    max-width: 50rem;
     color: white;
 `
 const ArticleContentContainer = styled.div`
@@ -17,9 +16,10 @@ const ArticleContentContainer = styled.div`
     width: 60%;
 `
 
-const Article = (props) => (
+const Article = (props, { className }) => (
     <BackgroundImage
         Tag="section"
+        className={ className }
         fluid={props.img.childImageSharp.fluid} >
         <ArticleElement>
             <TextAnimation type="fade">
@@ -27,23 +27,11 @@ const Article = (props) => (
                         Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
                 </SectionTitle>
             </TextAnimation>
-            
             <ArticleContentContainer >
-                <TextAnimation type="fade" delay="700">
+                <TextAnimation type="fade" delay="600">
                     <p> 
                         Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat.
                     </p>
-                </TextAnimation>
-                <TextAnimation type="slide-right">
-
-                    <hr/>
-                    <FlexDiv>
-                        <span> 
-                                View the article 
-                        </span>
-                        <img src={ arrow } alt="right arrow"/>
-                    </FlexDiv>
-
                 </TextAnimation>
             </ArticleContentContainer>
         </ArticleElement>
@@ -54,10 +42,9 @@ Article.propTypes = {
     img: PropTypes.object
 }
 
-const StyledArticle = styled(Article)`
-    height: 80vh;
+const StyledArticle = styled(Article)` 
+    height: 70vh;
     background-size: cover;
-    padding: 7rem 5rem;
 `
 
 export default StyledArticle

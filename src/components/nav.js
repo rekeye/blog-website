@@ -10,12 +10,6 @@ const navClass = {
     alignItems: `center`,
     justifyContent: `flex-end`
 }
-const linkClass = {
-    fontSize: `1.3em`,
-    color: `black`, 
-    textDecoration: `none`,
-    margin: `0 1.2rem`
-}
 const underlineClass = {
     height: `2px`,
     background: `#000`,
@@ -65,10 +59,12 @@ const Nav = () => {
                 About 
                 <hr style={{ ...underlineClass, ...underlineAnimations[1] }}/> 
             </Link>
-            <Link id="nav-3" to="/contact" className="link" {...underlineHandler}> 
-                Contact us 
-                <hr style={{ ...underlineClass, ...underlineAnimations[2] }}/> 
-            </Link>
+            <AnchorLink to="/#contact" className="link"> 
+                <div id="nav-3" {...underlineHandler} >
+                    Contact us 
+                    <hr style={{ ...underlineClass, ...underlineAnimations[2] }}/> 
+                </div>
+            </AnchorLink>
         </nav>
     )
 }

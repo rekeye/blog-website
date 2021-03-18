@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
@@ -18,39 +18,24 @@ const MiniArticleTitle = styled.h2`
     text-align: center;
     margin-top: 0;
 `
-const MiniArticleContainer = styled.div`
+const MiniArticleContainer = styled.section`
     width: 25%;
 `
 
-const useHover = () => {
-    const [ hover, setHover ] = useState(0);
-  
-    const onMouseEnter = () => setHover(1);
-    const onMouseLeave = () => setHover(0);
+const MiniArticle = (props) => (
+    <MiniArticleContainer>
+        <Img fluid={props.img.childImageSharp.fluid}></Img>
 
-    const hoverProps =  hover === 1 ? "hovered" : "";
-    
-    return { hoverProps, onMouseEnter, onMouseLeave }
-}
-
-const MiniArticle = (props) => {
-    const { hoverProps, ...hoverHandler } = useHover()
-
-    return (
-        <MiniArticleContainer { ...hoverHandler }>
-            <Img fluid={props.img.childImageSharp.fluid}></Img>
-
-            <TextAnimation type="slide-down">
-                <MiniArticleDate hoverProps> 
-                    { props.content.date }
-                </MiniArticleDate>
-                <MiniArticleTitle>
-                    { props.content.title }
-                </MiniArticleTitle>
-            </TextAnimation>
-        </MiniArticleContainer>
-    )
-}
+        <TextAnimation type="slide-down">
+            <MiniArticleDate>
+                { props.content.date }
+            </MiniArticleDate>
+            <MiniArticleTitle>
+                { props.content.title }
+            </MiniArticleTitle>
+        </TextAnimation>
+    </MiniArticleContainer>
+)
 
 MiniArticle.propTypes = {
     img: PropTypes.object,
