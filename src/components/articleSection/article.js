@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { gql, useQuery } from '@apollo/client'
-import { DOWNLOAD_IMAGE } from '../../graphql/downloadImage'
+import { useQuery } from '@apollo/client'
+import { DOWNLOAD_FLUID_IMAGE } from '../../graphql/downloadFluidImage'
 
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
@@ -20,7 +20,7 @@ const ArticleContentContainer = styled.div`
 `
 
 const Article = ({ src, width, className }) => {
-    const { loading, error, data } = useQuery(DOWNLOAD_IMAGE, {
+    const { loading, error, data } = useQuery(DOWNLOAD_FLUID_IMAGE, {
         variables: { src, width },
     })
 
