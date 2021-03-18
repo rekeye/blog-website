@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import gql, { useQuery } from '@apollo/client'
+import { gql, useQuery } from '@apollo/client'
 
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
@@ -22,23 +22,28 @@ query downloadImage($src: String!, $width: Int!){
     img: file(relativePath: {eq: $src}) {
         childImageSharp {
             fluid(maxWidth: $width) {
-                ...GatsbyImageSharpFluid_noBase64
+                base64
+                aspectRatio
+                src
+                srcSet
+                sizes
             }
         }
     }
 }`
 
-const Article = (props, { className }) => {
+const Article = ({ src, width, className }) => {
     const { loading, error, data } = useQuery(DOWNLOAD_IMAGE, {
-        variables: { src: "1.jpg", width: 1920 },
+        variables: { src, width },
     })
+    console.log({ src: src, width: width });
 
     if (loading) return null;
     if (error) {
-        console.log(error);
-        return null;
+        return {error};
     } 
     
+    console.log(loading, data)
     const imgData = data.img.childImageSharp.fluid;
 
     return (
@@ -49,7 +54,7 @@ const Article = (props, { className }) => {
             <ArticleElement>
                 <TextAnimation type="fade">
                     <SectionTitle> 
-                            Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
+                        Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
                     </SectionTitle>
                 </TextAnimation>
                 <ArticleContentContainer>
@@ -63,7 +68,8 @@ const Article = (props, { className }) => {
 }
 
 Article.propTypes = {
-    img: PropTypes.string
+    img: PropTypes.string,
+    width: PropTypes.number
 }
 
 const StyledArticle = styled(Article)` 
