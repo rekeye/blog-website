@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { gql, useQuery } from '@apollo/client'
+import { DOWNLOAD_IMAGE } from '../../graphql/downloadImage'
 
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
@@ -17,26 +18,11 @@ const ArticleContentContainer = styled.div`
     padding: 2rem 0;
     width: 60%;
 `
-const DOWNLOAD_IMAGE = gql`
-query downloadImage($src: String!, $width: Int!){
-    img: file(relativePath: {eq: $src}) {
-        childImageSharp {
-            fluid(maxWidth: $width) {
-                base64
-                aspectRatio
-                src
-                srcSet
-                sizes
-            }
-        }
-    }
-}`
 
 const Article = ({ src, width, className }) => {
     const { loading, error, data } = useQuery(DOWNLOAD_IMAGE, {
         variables: { src, width },
     })
-    console.log({ src, width });
 
     if (loading) return null;
     if (error) {
