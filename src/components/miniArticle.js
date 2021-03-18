@@ -5,8 +5,8 @@ import Img from 'gatsby-image'
 
 import { useStaticQuery, graphql } from "gatsby" //to be changed
 
-import { TextAnimation } from '../animations'
-import { FlexDiv } from "../../styles/styled"
+import { TextAnimation } from 'animations'
+import { FlexDiv } from "../styles/styled"
 
 const MiniArticleDate = styled.div`
     width: 100%;

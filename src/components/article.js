@@ -5,8 +5,8 @@ import { gql, useQuery } from '@apollo/client'
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 
-import { SectionTitle } from '../../styles/styled'
-import { TextAnimation } from '../animations'
+import { SectionTitle } from '../styles/styled'
+import { TextAnimation } from './animations'
 
 const ArticleElement = styled.article`
     padding: 5rem;
