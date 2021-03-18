@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { gql, useQuery } from '@apollo/client'
+import gql, { useQuery } from '@apollo/client'
 
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'

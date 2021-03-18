@@ -5,6 +5,7 @@ module.exports = {
     author: `@SzymonPaluch`,
   },
   plugins: [
+    'gatsby-theme-apollo',
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
