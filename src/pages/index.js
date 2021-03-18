@@ -1,7 +1,7 @@
 import React from "react"
 
-import ArticleSection from "../components/articleSection/articleSection"
-import MiniArticleSection from "../components/miniArticleSection/miniArticleSection"
+import ArticleSection from "../components/articleSection/article"
+import MiniArticleSection from "../components/miniArticleSection/miniArticle"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
