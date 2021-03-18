@@ -11,6 +11,7 @@ module.exports = {
         offset: -100
       }
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-scroll-reveal`,
     `gatsby-plugin-react-helmet`,
     {
