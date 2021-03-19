@@ -1,6 +1,9 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import { useQuery } from '@apollo/client'
+import { DOWNLOAD_FLUID_IMAGE } from '../../graphql/downloadFluidImage'
+
+import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 
 import { TextAnimation } from '../animations'
@@ -22,25 +25,34 @@ const MiniArticleContainer = styled.section`
     width: 25%;
 `
 
-const MiniArticle = (props) => (
-    <MiniArticleContainer>
-        <Img fluid={props.img.childImageSharp.fluid}></Img>
+const MiniArticle = ({ src, width, content }) => {
+    const { loading, error, data } = useQuery(DOWNLOAD_FLUID_IMAGE, {
+        variables: { src, width },
+    })
 
-        <TextAnimation type="slide-down">
+    if (loading) return null;
+    if (error) return {error};
+    
+    const imgData = data.img.childImageSharp.fluid;
+
+    return (
+        <MiniArticleContainer>
+            <Img fluid={ imgData }></Img>
+    
             <MiniArticleDate>
-                { props.content.date }
+                { content.date }
             </MiniArticleDate>
             <MiniArticleTitle>
-                { props.content.title }
+                { content.title }
             </MiniArticleTitle>
-        </TextAnimation>
-    </MiniArticleContainer>
-)
+        </MiniArticleContainer>
+    )
+}
 
 MiniArticle.propTypes = {
-    img: PropTypes.object,
-    date: PropTypes.string,
-    title: PropTypes.string,
+    src: PropTypes.string,
+    width: PropTypes.number,
+    content: PropTypes.object,
 }
 
 export default MiniArticle
