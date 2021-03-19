@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styled from 'styled-components'
-import { underlineClass, useUnderline } from "./animations"
+import { useUnderline } from "./animations"
 
 const navClass = {
     height: `6rem`, 
@@ -32,7 +32,7 @@ const Nav = () => {
                 className="link">
                     <div id="nav-1" {...underlineHandler} >
                         Thoughts 
-                        <hr style={{ ...underlineClass, ...underlineAnimations[0] }}/> 
+                        <StyledUnderline style={{ ...underlineAnimations[0] }}/> 
                     </div>
             </AnchorLink>
             <Link id="nav-2" to="/about" className="link" {...underlineHandler}> 
@@ -42,7 +42,7 @@ const Nav = () => {
             <AnchorLink to="/#contact" className="link"> 
                 <div id="nav-3" {...underlineHandler} >
                     Contact us 
-                    <hr style={{ ...underlineClass, ...underlineAnimations[2] }}/> 
+                    <StyledUnderline style={{ ...underlineAnimations[2] }}/> 
                 </div>
             </AnchorLink>
         </nav>

@@ -32,4 +32,76 @@ h2 {
   text-decoration: none;
   margin: 0 1.2rem;
 }
+
+.group {
+  width: 400px;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: 26.66667px;
+  color: white;
+  font: 400 26.66667px "Niramit";
+  cursor: text;
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+}
+
+.email {
+  width: 400px;
+  display: block;
+  padding-top: 26.66667px;
+  border: none;
+  border-radius: 0;
+  color: white;
+  background: transparent;
+  font-size: 26.66667px;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.email:valid ~ label {
+  top: 0;
+  font: 700 16px "Niramit";
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.email:focus {
+  outline: none;
+}
+
+.email:focus ~ .label {
+  top: 0;
+  font: 700 16px "Niramit";
+  color: #1a1a1a;
+}
+
+.email:focus ~ .bar:before {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.bar {
+  background: rgba(255, 255, 255, 0.6);
+  content: '';
+  width: 400px;
+  height: 2.66667px;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  position: relative;
+  margin-top: 6px;
+}
+
+.bar:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  background: #1a1a1a;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
 /*# sourceMappingURL=style.css.map */
