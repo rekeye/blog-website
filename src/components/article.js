@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useQuery } from '@apollo/client'
-import { DOWNLOAD_FLUID_IMAGE } from '../../graphql/downloadFluidImage'
+import { DOWNLOAD_FLUID_IMAGE } from '../graphql/downloadFluidImage'
 
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
-import { SectionTitle } from '../../styles/styled'
+import { SectionTitle } from '../styles/styled'
 
 const ArticleContentContainer = styled.div`
     padding: 2rem 0;
@@ -18,7 +18,7 @@ const Article = ({ src, width, className }) => {
     })
 
     if (loading) return null;
-    if (error) return {error};
+    if (error) return null;
     
     const imgData = data.img.childImageSharp.fluid;
 
@@ -31,7 +31,7 @@ const Article = ({ src, width, className }) => {
                 Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
             </SectionTitle>
             <ArticleContentContainer>
-                    Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat.
+                Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat.
             </ArticleContentContainer>
         </BackgroundImage>
     )
@@ -57,7 +57,7 @@ const ArticleSection = () => {
     const articles = []
     for( let i=1; i<4; i++ ) {
         articles.push( 
-            <StyledArticle key={i} src={`${i}.img`}> </StyledArticle> 
+            <StyledArticle key={i} src={`${i}.jpg`} width={ 1920 }> </StyledArticle> 
         );
     }
 

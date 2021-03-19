@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useQuery } from '@apollo/client'
-import { DOWNLOAD_FLUID_IMAGE } from '../../graphql/downloadFluidImage'
+import { DOWNLOAD_FLUID_IMAGE } from '../graphql/downloadFluidImage'
 
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
@@ -30,7 +30,7 @@ const MiniArticle = ({ src, width, content }) => {
     })
 
     if (loading) return null;
-    if (error) return {error};
+    if (error) return null;
     
     const imgData = data.img.childImageSharp.fluid;
 
