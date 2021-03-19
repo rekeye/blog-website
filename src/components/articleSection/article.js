@@ -26,9 +26,8 @@ const Article = ({ src, width, className }) => {
     if (loading) return null;
     if (error) {
         return {error};
-    } 
+    }
     
-    console.log(loading, data)
     const imgData = data.img.childImageSharp.fluid;
 
     return (
