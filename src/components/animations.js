@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 export const TextAnimation = ({ el, type, delay, children }) => {
@@ -34,4 +34,29 @@ TextAnimation.defaultProps = {
   el: "",
   type: "slide-down",
   delay: "500",
+}
+
+//hover animation for links using hook
+export const useUnderline = () => {
+  const [ underline, setUnderline ] = useState(0)
+
+  const onMouseEnter = (e) => {
+      const num = parseInt(e.target.id.substring(4));
+      setUnderline(num);
+  }
+
+  const onMouseLeave = () => setUnderline(0);
+
+  const underlineAnimations = []
+  for(let i=1;i<4;i++) {
+      underlineAnimations.push(
+          underline === i ? {
+              width: `100%`
+          } : {
+              width: `0`
+          }
+      )
+  }
+
+  return { underlineAnimations, onMouseEnter, onMouseLeave }
 }

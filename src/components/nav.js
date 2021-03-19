@@ -1,6 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
+
+import styled from 'styled-components'
+import { underlineClass, useUnderline } from "./animations"
 
 const navClass = {
     height: `6rem`, 
@@ -10,37 +13,14 @@ const navClass = {
     alignItems: `center`,
     justifyContent: `flex-end`
 }
-const underlineClass = {
-    height: `2px`,
-    background: `#000`,
-    border: 0,
-    transition: 'all .2s ease-in-out',
-}
+const StyledUnderline = styled.hr`
+    width: 0;
+    height: 2px;
+    background: black;
+    border: 0;
+    transition: 'all .2s ease-in-out';
+`
 
-//hover animation for links using hook
-const useUnderline = () => {
-    const [ underline, setUnderline ] = useState(0)
-  
-    const onMouseEnter = (e) => {
-        const num = parseInt(e.target.id.substring(4));
-        setUnderline(num);
-    }
-  
-    const onMouseLeave = () => setUnderline(0);
-  
-    const underlineAnimations = []
-    for(let i=1;i<4;i++) {
-        underlineAnimations.push(
-            underline === i ? {
-                width: `100%`
-            } : {
-                width: `0`
-            }
-        )
-    }
-  
-    return { underlineAnimations, onMouseEnter, onMouseLeave }
-  }
 
 const Nav = () => {
     const { underlineAnimations, ...underlineHandler } = useUnderline()
@@ -57,7 +37,7 @@ const Nav = () => {
             </AnchorLink>
             <Link id="nav-2" to="/about" className="link" {...underlineHandler}> 
                 About 
-                <hr style={{ ...underlineClass, ...underlineAnimations[1] }}/> 
+                <StyledUnderline style={{...underlineAnimations[1] }}/> 
             </Link>
             <AnchorLink to="/#contact" className="link"> 
                 <div id="nav-3" {...underlineHandler} >

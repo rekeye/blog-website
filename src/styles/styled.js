@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 export const SectionTitle = styled.h2`
     font-size: 2.4em;
-    padding-top: 3rem;
+    padding-top: 4rem;
 
     ${props => props.centered && css`
         font-size: 2.8em;
