@@ -1,5 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useQuery } from '@apollo/client'
+import { DOWNLOAD_FIXED_IMAGE } from '../graphql/downloadFixedImage'
+
 import Img from "gatsby-image"
 import styled from 'styled-components'
 
@@ -12,35 +14,28 @@ const Container = styled.div`
 `
 
 const Logo = () => {
-  const data = useStaticQuery(graphql`
-      query {
-        handLogo: file(relativePath: { eq: "logo/handLogo.png" }) {
-          childImageSharp {
-            fixed(width: 75) {
-              ...GatsbyImageSharpFixed_noBase64
-            }
-          }
-        }
-        textLogo: file(relativePath: { eq: "logo/textLogo.png" }) {
-          childImageSharp {
-            fixed(width: 225) {
-              ...GatsbyImageSharpFixed_noBase64
-            }
-          }
-        }
-      }
-    `)
+  const { loading: textQueryLoading, error: textQueryError, data: text } = useQuery(DOWNLOAD_FIXED_IMAGE, {
+      variables: { src: "logo/text.png", width: 225 },
+  })
+  const { loading: handQueryLoading, error: handQueryError, data: hand } = useQuery(DOWNLOAD_FIXED_IMAGE, {
+    variables: { src: "logo/hand.png", width: 75 },
+  })
+
+  if (textQueryLoading || handQueryLoading) return null;
+  if (textQueryError) return console.log("error with logo query (text)");
+  if (handQueryError) return console.log("error with logo query (hand)");
+
+  console.log(text, hand)
+
+  const imgDataText = text.img.childImageSharp.fixed;
+  const imgDataHand = hand.img.childImageSharp.fixed;
     
   return (
     <Container>
-      <div
-        style={{ position: "absolute", }} 
-        data-sal="flip-right"
-        data-sal-duration="600"
-        data-sal-easing="easeInSine">
-          <Img fixed={ data.textLogo.childImageSharp.fixed } />
+      <div style={{ position: "absolute", }} >
+          <Img fixed={ imgDataText } />
       </div>
-      <Img fixed={ data.handLogo.childImageSharp.fixed } />
+      <Img fixed={ imgDataHand } />
     </Container>
   );
 }
