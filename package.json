@@ -1,9 +1,4 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@apollo/client": "^3.3.12",
     "gatsby": "^2.26.1",
@@ -16,13 +11,17 @@
     "gatsby-plugin-scroll-reveal": "0.0.7",
     "gatsby-plugin-sharp": "^2.8.0",
     "gatsby-source-filesystem": "^2.5.0",
-    "gatsby-transformer-sharp": "^2.6.0",
+    "gatsby-theme-apollo": "^3.0.3",
+    "gatsby-transformer-sharp": "^3.1.0",
+    "graphql": "^15.5.0",
+    "isomorphic-fetch": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-is": "^17.0.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "typescript": "^4.2.3"
   },
   "devDependencies": {
     "prettier": "2.2.1"

@@ -1,20 +1,19 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import { useQuery } from '@apollo/client'
+import { DOWNLOAD_FLUID_IMAGE } from '../../graphql/downloadFluidImage'
+
 import Img from 'gatsby-image'
-
-import { useStaticQuery, graphql } from "gatsby" //to be changed
-
-import { TextAnimation } from 'animations'
+import styled, { css } from 'styled-components'
 import { FlexDiv } from "../styles/styled"
 
 const MiniArticleDate = styled.div`
     width: 100%;
-    margin-top: 6rem;
+    margin-top: 3rem;
     text-align: center;
 
     ${props => props.hovered && css`
-        margin-top: 4rem;
+        margin-top: 1.5rem;
     `}
 `
 const MiniArticleTitle = styled.h2`
@@ -25,76 +24,61 @@ const MiniArticleContainer = styled.section`
     width: 25%;
 `
 
-const MiniArticle = (props) => (
-    <MiniArticleContainer>
-        <Img fluid={props.img.childImageSharp.fluid}></Img>
+const MiniArticle = ({ src, width, content }) => {
+    const { loading, error, data } = useQuery(DOWNLOAD_FLUID_IMAGE, {
+        variables: { src, width },
+    })
 
-        <TextAnimation type="slide-down">
+    if (loading) return null;
+    if (error) return {error};
+    
+    const imgData = data.img.childImageSharp.fluid;
+
+    return (
+        <MiniArticleContainer>
+            <Img fluid={ imgData }></Img>
+    
             <MiniArticleDate>
-                { props.content.date }
+                { content.date }
             </MiniArticleDate>
             <MiniArticleTitle>
-                { props.content.title }
+                { content.title }
             </MiniArticleTitle>
-        </TextAnimation>
-    </MiniArticleContainer>
-)
+        </MiniArticleContainer>
+    )
+}
 
 MiniArticle.propTypes = {
-    img: PropTypes.object,
-    date: PropTypes.string,
-    title: PropTypes.string,
+    src: PropTypes.string,
+    width: PropTypes.number,
+    content: PropTypes.object,
 }
 
 const MiniArticleSection = () => {
-    const data = useStaticQuery(graphql`
-        {
-          first: file(relativePath: {eq: "mini1.jpg"}) {
-            childImageSharp {
-              fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-          second: file(relativePath: {eq: "mini2.jpg"}) {
-            childImageSharp {
-              fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-          third: file(relativePath: {eq: "mini3.jpg"}) {
-            childImageSharp {
-              fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-        }
-      `)
-    const miniArticlesContents ={
-      first: {
+    const miniArticlesContents = [
+      {
         date: "01 January 2021",
         title: "Est voluptate sint exercitation."
       },
-      second: {
+      {
         date: "23 January 2021",
         title: "Eu labore nulla in amet."
       },
-      third: {
+      {
         date: "13 February 2021",
         title: "Elit incididunt do ad ad irure."
       }
-    }
+    ]
 
     const miniArticles = []
 
-    for(const [key, value] of Object.entries(data)) {
+    for( let i=1; i<4; i++ ) {
         miniArticles.push(
           <MiniArticle 
-            key={key} 
-            img={value} 
-            content={miniArticlesContents[key]} >
+            key={ `mini-${i}` } 
+            src={ `mini${i}.jpg` } 
+            width={ 600 }
+            content={ miniArticlesContents[i-1] } >
           </MiniArticle>
         )
     }

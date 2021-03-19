@@ -1,43 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { gql, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
+import { DOWNLOAD_FLUID_IMAGE } from '../../graphql/downloadFluidImage'
 
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
+import { SectionTitle } from '../../styles/styled'
 
-import { SectionTitle } from '../styles/styled'
-import { TextAnimation } from './animations'
-
-const ArticleElement = styled.article`
-    padding: 5rem;
-    max-width: 50rem;
-    color: white;
-`
 const ArticleContentContainer = styled.div`
     padding: 2rem 0;
     width: 60%;
 `
-const DOWNLOAD_IMAGE = gql`
-query downloadImage($src: String!, $width: Int!){
-    img: file(relativePath: {eq: $src}) {
-        childImageSharp {
-            fluid(maxWidth: $width) {
-                ...GatsbyImageSharpFluid_noBase64
-            }
-        }
-    }
-}`
 
-const Article = (props, { className }) => {
-    const { loading, error, data } = useQuery(DOWNLOAD_IMAGE, {
-        variables: { src: "1.jpg", width: 1920 },
+const Article = ({ src, width, className }) => {
+    const { loading, error, data } = useQuery(DOWNLOAD_FLUID_IMAGE, {
+        variables: { src, width },
     })
 
     if (loading) return null;
-    if (error) {
-        console.log(error);
-        return null;
-    } 
+    if (error) return {error};
     
     const imgData = data.img.childImageSharp.fluid;
 
@@ -46,29 +27,30 @@ const Article = (props, { className }) => {
             Tag="section"
             className={ className }
             fluid={ imgData } >
-            <ArticleElement>
-                <TextAnimation type="fade">
-                    <SectionTitle> 
-                            Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
-                    </SectionTitle>
-                </TextAnimation>
-                <ArticleContentContainer>
-                    <TextAnimation type="fade" delay="600">
-                        Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat.
-                    </TextAnimation>
-                </ArticleContentContainer>
-            </ArticleElement>
+            <SectionTitle> 
+                Elit reprehenderit magna laborum esse culpa fugiat ipsum elit labore in. 
+            </SectionTitle>
+            <ArticleContentContainer>
+                    Et ipsum pariatur reprehenderit est duis duis incididunt laborum consectetur fugiat.
+            </ArticleContentContainer>
         </BackgroundImage>
     )
 }
 
 Article.propTypes = {
-    img: PropTypes.string
+    src: PropTypes.string,
+    width: PropTypes.number,
+    className: PropTypes.string,
 }
 
 const StyledArticle = styled(Article)` 
     height: 700px;
     background-size: cover;
+    padding: 8rem 60vw 8rem 5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 `
 
 const ArticleSection = () => {
