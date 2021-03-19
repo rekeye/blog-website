@@ -21,22 +21,18 @@ const Logo = () => {
     variables: { src: "logo/hand.png", width: 75 },
   })
 
-  if (textQueryLoading || handQueryLoading)
+  if (textQueryLoading || handQueryLoading) return null;
   if (textQueryError) return console.log("error with logo query (text)");
   if (handQueryError) return console.log("error with logo query (hand)");
 
-  console.log(text, hand)
+  console.log(text, hand);
 
   const imgDataText = text.img.childImageSharp.fixed;
   const imgDataHand = hand.img.childImageSharp.fixed;
     
   return (
     <Container>
-      <div
-        style={{ position: "absolute", }} 
-        data-sal="flip-right"
-        data-sal-duration="600"
-        data-sal-easing="easeInSine">
+      <div style={{ position: "absolute", }} >
           <Img fixed={ imgDataText } />
       </div>
       <Img fixed={ imgDataHand } />
