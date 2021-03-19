@@ -21,7 +21,7 @@ const Logo = () => {
     variables: { src: "logo/hand.png", width: 75 },
   })
 
-  if (textQueryLoading || handQueryLoading) return null;
+  if (textQueryLoading || handQueryLoading)
   if (textQueryError) return console.log("error with logo query (text)");
   if (handQueryError) return console.log("error with logo query (hand)");
 
@@ -32,7 +32,11 @@ const Logo = () => {
     
   return (
     <Container>
-      <div style={{ position: "absolute", }} >
+      <div
+        style={{ position: "absolute", }} 
+        data-sal="flip-right"
+        data-sal-duration="600"
+        data-sal-easing="easeInSine">
           <Img fixed={ imgDataText } />
       </div>
       <Img fixed={ imgDataHand } />
