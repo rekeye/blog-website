@@ -6,15 +6,13 @@ import { DOWNLOAD_FLUID_IMAGE } from '../../graphql/downloadFluidImage'
 import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 
-import { TextAnimation } from '../animations'
-
 const MiniArticleDate = styled.div`
     width: 100%;
-    margin-top: 6rem;
+    margin-top: 3rem;
     text-align: center;
 
     ${props => props.hovered && css`
-        margin-top: 4rem;
+        margin-top: 1.5rem;
     `}
 `
 const MiniArticleTitle = styled.h2`

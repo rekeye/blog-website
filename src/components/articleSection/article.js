@@ -6,7 +6,6 @@ import { DOWNLOAD_FLUID_IMAGE } from '../../graphql/downloadFluidImage'
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import { SectionTitle } from '../../styles/styled'
-import { TextAnimation } from '../animations'
 
 const ArticleContentContainer = styled.div`
     padding: 2rem 0;
