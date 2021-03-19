@@ -1,5 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useQuery } from '@apollo/client'
+import { DOWNLOAD_FIXED_IMAGE } from '../graphql/downloadFixedImage'
+
 import Img from "gatsby-image"
 import styled from 'styled-components'
 
@@ -12,24 +14,14 @@ const Container = styled.div`
 `
 
 const Logo = () => {
-  const data = useStaticQuery(graphql`
-      query {
-        handLogo: file(relativePath: { eq: "logo/handLogo.png" }) {
-          childImageSharp {
-            fixed(width: 75) {
-              ...GatsbyImageSharpFixed_noBase64
-            }
-          }
-        }
-        textLogo: file(relativePath: { eq: "logo/textLogo.png" }) {
-          childImageSharp {
-            fixed(width: 225) {
-              ...GatsbyImageSharpFixed_noBase64
-            }
-          }
-        }
-      }
-    `)
+  const { loading: textQueryLoading, error: textQueryLoading, data: textQueryLoading } = useQuery(DOWNLOAD_FIXED_IMAGE, {
+      variables: { src: "/logo/text.png", width },
+  })
+
+  if (loading) return null;
+  if (error) return null;
+  
+  const imgData = data.img.childImageSharp.fluid;
     
   return (
     <Container>
