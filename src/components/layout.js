@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import "../styles/style.css"
 import Header from "./header"
+import Footer from "./footer"
 
 
 const Layout = ({ children }) => {
@@ -20,13 +21,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div>
-        <main> {children} </main>
-
-        <footer style={{ padding: `2rem 4rem` }}>
-          © { new Date().getFullYear() }, Built by Szymon Paluch, Mockup of Use All Five
-        </footer>
-      </div>
+      <main> 
+        {children} 
+      </main>
+      <Footer/>
     </>
   )
 }
