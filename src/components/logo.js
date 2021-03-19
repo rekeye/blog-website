@@ -14,25 +14,28 @@ const Container = styled.div`
 `
 
 const Logo = () => {
-  const { loading: textQueryLoading, error: textQueryLoading, data: textQueryLoading } = useQuery(DOWNLOAD_FIXED_IMAGE, {
-      variables: { src: "/logo/text.png", width },
+  const { loading: textQueryLoading, error: textQueryError, data: text } = useQuery(DOWNLOAD_FIXED_IMAGE, {
+      variables: { src: "logo/text.png", width: 225 },
+  })
+  const { loading: handQueryLoading, error: handQueryError, data: hand } = useQuery(DOWNLOAD_FIXED_IMAGE, {
+    variables: { src: "logo/hand.png", width: 75 },
   })
 
-  if (loading) return null;
-  if (error) return null;
-  
-  const imgData = data.img.childImageSharp.fluid;
+  if (textQueryLoading || handQueryLoading) return null;
+  if (textQueryError) return console.log("error with logo query (text)");
+  if (handQueryError) return console.log("error with logo query (hand)");
+
+  console.log(text, hand)
+
+  const imgDataText = text.img.childImageSharp.fixed;
+  const imgDataHand = hand.img.childImageSharp.fixed;
     
   return (
     <Container>
-      <div
-        style={{ position: "absolute", }} 
-        data-sal="flip-right"
-        data-sal-duration="600"
-        data-sal-easing="easeInSine">
-          <Img fixed={ data.textLogo.childImageSharp.fixed } />
+      <div style={{ position: "absolute", }} >
+          <Img fixed={ imgDataText } />
       </div>
-      <Img fixed={ data.handLogo.childImageSharp.fixed } />
+      <Img fixed={ imgDataHand } />
     </Container>
   );
 }
