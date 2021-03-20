@@ -8,19 +8,21 @@ export const SectionTitle = styled.h2`
     ${props => props.centered && css`
         font-size: 2.8em;
         text-align: center;
-  `}
+    `}
 `
 export const FlexDiv = styled.div`
-    padding: 0.5rem 1rem;
-    font-size: 1.2em;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    ${props => props.fontStyle && css`
+        padding: 0.5rem 1rem;
+        font-size: 1.2em;
+    `}
     ${props => props.spaceAround && css`
         justify-content: space-around;
         align-items: flex-start;
-  `}
+    `}
 `
 
 export const SiteMotto = styled.h2`

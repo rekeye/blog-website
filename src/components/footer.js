@@ -1,5 +1,7 @@
 import React from "react"
 
+import Nav, { StyledLink } from "./nav"
+
 import styled from 'styled-components'
 import { SectionTitle, FlexDiv } from '../styles/styled'
 // import { Link } from "gatsby"
@@ -20,7 +22,6 @@ const StyledUnderline = styled.hr`
     height: 2px;
     background: white;
     border: 0;
-    transition: 'all .2s ease-in-out';
 `
 const StyledForm = styled.form`
     width: 100%;
@@ -42,32 +43,40 @@ const Footer = () => {
     const { underlineAnimations, ...underlineHandler } = useUnderline()
 
     return (
-        <StyledFooter>
+        <StyledFooter id="contact">
             <section>
                 <SectionTitle centered> Sign up for our weekly newsletter </SectionTitle>
                 <StyledForm>
                     <div className="group">
                         <input type="text" name="email" id="email" className="email" required />
-                        <label for="email" class="label"> Email address: </label>
+                        <label htmlFor="email" className="label"> Email address: </label>
                         <div className="bar"></div>
                     </div>
                     <StyledButton type="button" value="Join the club"/>
                 </StyledForm>
             </section>
 
+            <FlexDiv>
+                <StyledLink to="/">
+                        Use all five
+                </StyledLink>
+
+                <Nav footer white/>
+            </FlexDiv>
+
             <section>
                 <StyledUnderline/>
-                <FlexDiv>
+                <FlexDiv fontStyle>
                     <section>
                         © { new Date().getFullYear() }, Built by Szymon Paluch, Mockup of Use All Five
                     </section>
-                    <StyledA href="mailto:Lorem@placeholder.com" id="foo-1" {...underlineHandler}> 
+                    <StyledA href="mailto:Lorem@placeholder.com" id="foo-7" {...underlineHandler}> 
                         Lorem@placeholder.com 
-                        <StyledUnderline style={{ ...underlineAnimations[0] }}/> 
+                        <StyledUnderline style={{ transition: 'all .2s ease-in-out', ...underlineAnimations[6] }}/> 
                     </StyledA>
-                    <StyledA href="tel:+48111111111" id="foo-2" {...underlineHandler}> 
+                    <StyledA href="tel:+48111111111" id="foo-8" {...underlineHandler}> 
                         +48 111 111 111
-                        <StyledUnderline style={{ ...underlineAnimations[1] }}/> 
+                        <StyledUnderline style={{  transition: 'all .2s ease-in-out', ...underlineAnimations[7] }}/> 
                     </StyledA>
                 </FlexDiv>
             </section>

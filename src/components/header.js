@@ -27,7 +27,9 @@ const StyledLink = styled(Link)`
 const Header = ({ siteTitle }) => (
     <header>
       <ColoredSection>
-        <Logo />
+        <StyledLink to="/">
+          <Logo />
+        </StyledLink>
         <StyledTitle>
           <StyledLink to="/">
             { siteTitle }
