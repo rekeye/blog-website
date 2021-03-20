@@ -30,6 +30,11 @@ p {
   margin: 0.75em 0;
 }
 
+img {
+  height: auto;
+  width: auto;
+}
+
 .group {
   width: 400px;
   height: 80px;

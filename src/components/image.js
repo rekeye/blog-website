@@ -5,7 +5,7 @@ import { DOWNLOAD_FLUID_IMAGE } from '../graphql/downloadFluidImage'
 
 import Img from "gatsby-image"
 
-const Image = ({ src, width }) => {
+const Image = ({ src, width, imgStyle }) => {
     const { loading, error, data } = useQuery(DOWNLOAD_FLUID_IMAGE, {
         variables: { src, width },
     })
@@ -16,7 +16,7 @@ const Image = ({ src, width }) => {
     const imgData = data.img.childImageSharp.fluid;
 
     return (
-        <Img fluid={ imgData } />
+        <Img fluid={ imgData } imgStyle={ imgStyle } />
     );
 }
 
