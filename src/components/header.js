@@ -13,6 +13,9 @@ const ColoredSection = styled.section`
   display: flex;
   justify-content: space-between;
 `
+const PaddingDiv =styled.div`
+padding: 0 4rem;
+`
 const StyledTitle = styled.h1` 
   margin: 0;
   padding-bottom: 1.2rem;
@@ -36,7 +39,9 @@ const Header = ({ siteTitle }) => (
           </StyledLink>
         </StyledTitle>
       </ColoredSection>
-      <Nav />
+      <PaddingDiv>
+        <Nav />
+      </PaddingDiv>
     </header>
 )
 

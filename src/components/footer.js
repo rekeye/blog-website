@@ -57,7 +57,7 @@ const Footer = () => {
             </section>
 
             <FlexDiv>
-                <StyledLink to="/">
+                <StyledLink to="/" footer>
                         Use all five
                 </StyledLink>
 
