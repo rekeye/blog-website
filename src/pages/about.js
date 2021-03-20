@@ -1,20 +1,24 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { SiteMotto } from "../styles/styled"
+import styled from 'styled-components'
+import { SectionTitle } from "../styles/styled"
+
+const InfoSection = styled.section`
+  width: 100%;
+  text-align: right;
+`
 
 const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />
-    <SiteMotto>About Us</SiteMotto>
+    <SectionTitle about> About Us </SectionTitle>
 
-    <div style={{padding: "0 5rem"}}>
-      <p>Sadly there's nothing here yet</p>
+    <InfoSection>
+      asas
+    </InfoSection>
 
-      <Link to="/">Go back to the homepage</Link>
-    </div>
   </Layout>
 )
 
