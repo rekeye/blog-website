@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export const TextAnimation = ({ el, type, delay, children }) => {
+/* export const TextAnimation = ({ el, type, delay, children }) => {
   if ( el === "span" ) {
     return (
       <span 
@@ -23,7 +23,24 @@ export const TextAnimation = ({ el, type, delay, children }) => {
       </div>
     )
   } 
-}
+} */
+export const TextAnimation = ({ el, type, delay, children }) => (
+  el === "span" 
+    ? <span 
+        data-sal={ type }
+        data-sal-delay={ delay }
+        data-sal-duration="600"
+        data-sal-easing="easeInSine" >
+          { children }
+      </span> 
+    : <div 
+        data-sal={ type }
+        data-sal-delay={ delay }
+        data-sal-duration="600"
+        data-sal-easing="easeInSine" >
+          { children }
+      </div>
+)
 
 TextAnimation.propTypes = {
   el: PropTypes.string,
@@ -46,6 +63,8 @@ export const useUnderline = () => {
   }
 
   const onMouseLeave = () => setUnderline(0);
+
+  console.log(underline)
 
   const underlineAnimations = []
   for(let i=1;i<10;i++) {
