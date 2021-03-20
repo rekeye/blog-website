@@ -2,8 +2,9 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from 'styled-components'
-import { SectionTitle } from "../styles/styled"
+import styled, { css } from 'styled-components'
+import { SectionTitle, SiteMotto } from "../styles/styled"
+import Image from "../components/image"
 
 const InfoSection = styled.section`
   width: 100%;
@@ -11,7 +12,10 @@ const InfoSection = styled.section`
   justify-content: flex-end;
 `
 const HalfOfSite = styled.div`
-  margin: 0 0 0 50%;
+  margin: 0 0 0 60%;
+  ${props => props.left && css`
+    margin: 0 60% 0 0;
+  `}
 `
 
 const SecondPage = () => (
@@ -32,6 +36,23 @@ const SecondPage = () => (
         </p>
       </HalfOfSite>
     </InfoSection>
+
+    <section>
+      <SiteMotto noPadding>
+        <HalfOfSite left>
+          Ad consequat deserunt do occaecat id aliquip. In esse commodo dolore tempor excepteur anim dolore.
+        </HalfOfSite>
+      </SiteMotto>
+
+      <Image src="about/vert1.jpg" width={ 800 }/>
+
+    </section>
+
+    <p>
+      <HalfOfSite>
+        Anim anim labore voluptate duis. Excepteur officia ea pariatur excepteur enim et ullamco sint. Laboris eiusmod pariatur duis nisi cupidatat quis aute quis sunt et duis in fugiat. Cillum ex dolore voluptate ea culpa labore sunt sint adipisicing. Laboris commodo officia in magna.
+      </HalfOfSite>
+    </p>
 
   </Layout>
 )

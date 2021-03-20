@@ -32,4 +32,7 @@ export const FlexDiv = styled.div`
 export const SiteMotto = styled.h2`
   padding: 9rem 0;
   font-size: 2.6em;
+  ${props => props.noPadding && css`
+    padding: 0;
+  `}
 `

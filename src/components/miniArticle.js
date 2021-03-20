@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useQuery } from '@apollo/client'
-import { DOWNLOAD_FLUID_IMAGE } from '../graphql/downloadFluidImage'
 
-import Img from 'gatsby-image'
+import Image from "./image"
 import styled, { css } from 'styled-components'
 import { FlexDiv } from "../styles/styled"
 
@@ -24,29 +22,18 @@ const MiniArticleContainer = styled.section`
     width: 25%;
 `
 
-const MiniArticle = ({ src, width, content }) => {
-    const { loading, error, data } = useQuery(DOWNLOAD_FLUID_IMAGE, {
-        variables: { src, width },
-    })
+const MiniArticle = ({ src, width, content }) => (
+    <MiniArticleContainer>
+        <Image src={ src } width={ width } />
 
-    if (loading) return null;
-    if (error) return null;
-    
-    const imgData = data.img.childImageSharp.fluid;
-
-    return (
-        <MiniArticleContainer>
-            <Img fluid={ imgData }></Img>
-    
-            <MiniArticleDate>
-                { content.date }
-            </MiniArticleDate>
-            <MiniArticleTitle>
-                { content.title }
-            </MiniArticleTitle>
-        </MiniArticleContainer>
-    )
-}
+        <MiniArticleDate>
+            { content.date }
+        </MiniArticleDate>
+        <MiniArticleTitle>
+            { content.title }
+        </MiniArticleTitle>
+    </MiniArticleContainer>
+)
 
 MiniArticle.propTypes = {
     src: PropTypes.string,
