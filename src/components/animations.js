@@ -1,29 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-/* export const TextAnimation = ({ el, type, delay, children }) => {
-  if ( el === "span" ) {
-    return (
-      <span 
-        data-sal={ type }
-        data-sal-delay={ delay }
-        data-sal-duration="600"
-        data-sal-easing="easeInSine" >
-          { children }
-      </span>
-    )
-  } else {
-    return (
-      <div 
-        data-sal={ type }
-        data-sal-delay={ delay }
-        data-sal-duration="600"
-        data-sal-easing="easeInSine" >
-          { children }
-      </div>
-    )
-  } 
-} */
 export const TextAnimation = ({ el, type, delay, children }) => (
   el === "span" 
     ? <span 
