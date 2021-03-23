@@ -46,6 +46,7 @@ Article.propTypes = {
 const StyledArticle = styled(Article)` 
     height: 700px;
     background-size: cover;
+    background: #505050;
     padding: 8rem 60vw 8rem 5rem;
     color: white;
     display: flex;
