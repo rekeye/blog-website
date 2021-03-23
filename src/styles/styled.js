@@ -36,3 +36,6 @@ export const SiteMotto = styled.h2`
     padding: 0;
   `}
 `
+export const TextAlignCenter = styled.div`
+    text-align: center;
+`

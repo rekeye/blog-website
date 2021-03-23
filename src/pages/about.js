@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled, { css } from 'styled-components'
-import { SectionTitle, SiteMotto, FlexDiv } from "../styles/styled"
+import { SectionTitle, SiteMotto, FlexDiv, TextAlignCenter } from "../styles/styled"
 import Image from "../components/image"
 
 const HalfOfSite = styled.section`
@@ -36,9 +36,9 @@ const SecondImageHor = styled.div`
   width: 600px;
 `
 
-const SecondPage = () => (
+const About = () => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="About" />
     <SectionTitle about> About Us </SectionTitle>
 
     <HalfOfSite>
@@ -100,18 +100,38 @@ const SecondPage = () => (
     </SiteMotto>
 
     <FlexDiv spaceAround>
-      <div>
+      <TextAlignCenter>
         <h1>Strategy</h1>
-        
-      </div>
-      <div>
+        <article>
+          <p>Qualitative/Quantitative research</p>
+          <p>Persona development</p>
+          <p>Usability testing and research</p>
+          <p>Competitive/Culture audit</p>
+          <p>Digital strategy</p>
+        </article>
+      </TextAlignCenter>
+      <TextAlignCenter>
         <h1>Design</h1>
-      </div>
-      <div>
+        <article>
+          <p>Visual design</p>
+          <p>Service Design</p>
+          <p>Interaction and product design (UX/UI)</p>
+          <p>Experience design (XD)</p>
+          <p>Integrated campaigns</p>
+        </article>
+      </TextAlignCenter>
+      <TextAlignCenter>
         <h1>Technology</h1>
-      </div>
+        <article>
+          <p>Technical consulting</p>
+          <p>Rapid prototyping</p>
+          <p>Website design and development</p>
+          <p>Native application development</p>
+          <p>Platform and API integration</p>
+        </article>
+      </TextAlignCenter>
     </FlexDiv>
   </Layout>
 )
 
-export default SecondPage
+export default About
