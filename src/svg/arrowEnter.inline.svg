@@ -1,0 +1,17 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 76 74" style="enable-background:new 0 0 76 74;" xml:space="preserve" class="ng-scope" width="76"  height="74" >
+<style type="text/css">
+	.st0{fill:#231F20;}
+</style>
+<g id="statement-arrow" clip-path="url(#mask)">
+	<polygon class="st0" points="49.4,49.6 44.3,54.6 47.1,57.4 57,47.6 47.1,37.7 44.3,40.5 49.4,45.6 	" fill="#231F20"></polygon>
+	<polygon class="st0" points="49.4,45.6 19,45.5 19,49.6 49.4,49.6 	" fill="#231F20"></polygon>
+	<polygon class="st0" points="23,45.6 23,16.7 19,16.7 19,45.6 	" fill="#231F20"></polygon>
+</g>
+<defs>
+<clipPath id="mask">
+	<rect x="16.5" y="16.3" class="arrow-mask-1" width="7.8" height="29.6"></rect>
+	<rect x="18.7" y="45.6" class="arrow-mask-2" width="30.7" height="4"></rect>
+	<rect x="42.9" y="33.5" class="arrow-mask-3" width="14.4" height="24.8"></rect>
+</clipPath>
+</defs>
+</svg>
