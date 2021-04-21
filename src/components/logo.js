@@ -2,8 +2,8 @@ import React from "react"
 
 import styled from 'styled-components'
 
-import Hand from "../svg/logoHand.inline.svg"
-import Text from "../svg/logoText.inline.svg"
+import Hand from "../assets/logoHand.inline.svg"
+import Text from "../assets/logoText.inline.svg"
 
 
 const Container = styled.div`
