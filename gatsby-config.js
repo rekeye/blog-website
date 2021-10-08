@@ -5,21 +5,21 @@ module.exports = {
     author: `@SzymonPaluch`,
   },
   plugins: [
-    'gatsby-theme-apollo',
+    `gatsby-theme-apollo`,
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
-        offset: -100
-      }
+        offset: -100,
+      },
     },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
-          threshold: 0.8, // Percentage of an element's area that needs to be visible to launch animation
-          once: true, // Defines if animation needs to be launched once
-          disable: false, // Flag for disabling animations
-      }
+        threshold: 0.8, // Percentage of an element's area that needs to be visible to launch animation
+        once: true, // Defines if animation needs to be launched once
+        disable: false, // Flag for disabling animations
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
@@ -29,7 +29,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
